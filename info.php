@@ -1,5 +1,5 @@
 <?php
-
+    //Connecting to the SQL Database.
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -39,7 +39,9 @@
     $message = $row["message"];
     $contacted = $row["contacted"];
 
+    //Clicking either button.
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //Setting and unsetting the "Contacted" value.
         if(isset($_POST['contact'])) {
             if ($contacted == 0) {
                 $newContacted = 1;
@@ -53,7 +55,7 @@
             $result = $connection->query($sql);
             if ($result) { $errorMessage = "Hiba: " . $connection -> error;}
         }
-
+        //Clicking the delete button. This code itself won't remove it from the Database, but forward the userr to the delete.php page.
         if(isset($_POST['delete'])) {
             echo '<script>
                 var confirmed = confirm("Törülni kivánja a jelentkezést?");

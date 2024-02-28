@@ -1,4 +1,5 @@
 <?php
+    //Connecting to the SQL Database.
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -27,6 +28,7 @@
     $phone = null;
     $message = null;
 
+    //Submitting an application format.
     if ( $_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = $_POST["email"];
         $name = $_POST["name"];
@@ -51,6 +53,7 @@
         $message = $_POST["message"];
         $contacted = false;     //A newly created applicant wouldn't have been contacted yet.
 
+        //Adding the applicant to the SQL database.
         $sql = "INSERT INTO `applicants`(`email`, `name`, `age`, `location`, `education`, `skill1`, `skill2`, `skill3`, `skill4`, `skill5`,
         `skill6`, `skill7`, `skill8`, `analyticsExperience`, `tagExperience`, `strengths`, `oneToThree`, `marketingExperience`,
         `cvURL`, `phone`, `message`, `contacted`) 

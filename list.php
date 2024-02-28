@@ -1,4 +1,5 @@
-<?php 
+<?php
+    //Connecting to the SQL Database.
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -7,6 +8,7 @@
 
     if($connection -> connect_error) { die("Konnekciós hiba:" . $connection->connect_error); }
 
+    //The code fetches all of the applicants without any filters.
     $sql = "SELECT * FROM applicants";
     $result = $connection -> query($sql);
 
